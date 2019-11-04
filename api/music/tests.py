@@ -2,7 +2,7 @@ from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
 from .models import Song
-from .serializers import SongsSerializer
+from .serializers import SongSerializer
 
 # tests for views
 
@@ -35,6 +35,6 @@ class GetAllSongsTest(BaseViewTest):
         )
         # fetch the data from db
         expected = Song.objects.all()
-        serialized = SongsSerializer(expected, many=True)
+        serialized = SongSerializer(expected, many=True)
         self.assertEqual(response.data, serialized.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)

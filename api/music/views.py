@@ -1,11 +1,11 @@
 from rest_framework import generics
-from .models import Songs
-from .serializers import SongsSerializer
+from .models import Song
+from .serializers import SongSerializer
 
 class ListSongsView(generics.ListAPIView):
   """
-  Provides a get method handler
+  Gets all songs & returns them as a serialized JSON array.
   """
-  queryset = Songs.objects.all()
-  serializer_class = SongsSerializer
+  queryset = Song.objects.all()
+  serializer_class = SongSerializer
   
